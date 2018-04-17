@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">inhaMap</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+
+    <string name="bestway">기본(추천) : 최단경로로 안내</string>
+    <string name="hitec">인하대학교 하이테크센터</string>
+    <string name="hitec_1">문 1 : 하이테크 고층부 문</string>
+    <string name="hitec_2">문 2 : 하이테크 저층부 문</string>
+    <string name="hitec_3">문 3 : 하이테크 지하방향 문</string>
+
+    <string name="iconwidth">10dp</string>
+</resources>

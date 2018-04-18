@@ -49,12 +49,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_search:
                 // User chose the "Settings" item, show the app settings UI...
                 Toast.makeText(getApplicationContext(), "찾기 버튼 클릭됨", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(this, DisplayMessageActivity.class);
+                Intent intent = new Intent(this, StartingDoorActivity.class);
                 startActivity(intent);
                 return true;
             case R.id.action_settings2:
                 Toast.makeText(getApplicationContext(), "항목 1 버튼 클릭됨", Toast.LENGTH_LONG).show();
-                Intent intent2 = new Intent(this, DisplayMessageActivity.class);
+                Intent intent2 = new Intent(this, StartingDoorActivity.class);
                 startActivity(intent2);
                 return true;
             default:

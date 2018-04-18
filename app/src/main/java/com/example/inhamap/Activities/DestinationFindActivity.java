@@ -19,7 +19,7 @@ public class DestinationFindActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_find);
 
         /* toolbar */
         myToolbar = (Toolbar) findViewById(R.id.my_toolbar);

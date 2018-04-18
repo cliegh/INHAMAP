@@ -19,6 +19,7 @@
         app:titleTextColor="@android:color/white">
     </android.support.v7.widget.Toolbar>
 
+    <!--
     <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/photo_view"
         android:layout_width="match_parent"
@@ -26,6 +27,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout1"/>
+
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -51,7 +53,17 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             app:srcCompat="@drawable/ic_mic_white_24dp" />
+
     </LinearLayout>
+-->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginTop="56dp"
+        android:id="@+id/main_map_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></LinearLayout>
+
 
 
 </android.support.constraint.ConstraintLayout>

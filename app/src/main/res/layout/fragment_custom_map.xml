@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="@drawable/inhamap"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="1458px"
+    android:layout_height="1074px">
+
+    <TextView
+        android:layout_alignParentBottom="true"
+        android:id="@+id/custom_map_text_view"
+        android:text="FRAGMENT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

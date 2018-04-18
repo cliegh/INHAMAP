@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.example.inhamap.R;
 import com.github.chrisbanes.photoview.PhotoView;
 
-public class StartingDoorActivity extends AppCompatActivity implements View.OnClickListener {
+public class DestinationDoorActivity extends AppCompatActivity implements View.OnClickListener {
 
     Toolbar myToolbar;
     TextView text;
@@ -39,7 +39,7 @@ public class StartingDoorActivity extends AppCompatActivity implements View.OnCl
         switch (v.getId()){
             case R.id.textView2:// TextView가 클릭될 시 할 코드작성
                 Toast.makeText(getApplicationContext(), "텍뷰2 클릭됨", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(this, DestinationFindActivity.class);
+                Intent intent = new Intent(this, NavigationActivity.class);
                 startActivity(intent);
                 break;
             case R.id.textView3:

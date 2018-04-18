@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.DisplayMessageActivity"
+    tools:context=".Activities.StartingDoorActivity"
     tools:layout_editor_absoluteY="25dp">
 
     <com.github.chrisbanes.photoview.PhotoView

@@ -1,6 +1,8 @@
 package com.example.inhamap.Activities;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -9,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.inhamap.Fragments.CustomMapFragment;
 import com.example.inhamap.R;
 import com.github.chrisbanes.photoview.PhotoView;
 
@@ -28,8 +31,16 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("출발지 검색");
 
         /* photoView : 사진 확대 축소 가능하게 해주는 라이브러리 */
+        /*
         PhotoView photoView = (PhotoView) findViewById(R.id.photo_view);
         photoView.setImageResource(R.drawable.test3);
+        */
+
+        // 지도 Fragment 불러오기
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_map_view, new CustomMapFragment());
+        fragmentTransaction.commit();
     }
 
     /* toolbar 생성하는 함수 */

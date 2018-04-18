@@ -10,4 +10,6 @@
     <string name="hitec_3">문 3 : 하이테크 지하방향 문</string>
 
     <string name="iconwidth">10dp</string>
+
+    <string name="explainComment">지도를 이동하며 건물을 클릭하거나 마이크를 눌러 사용합니다</string>
 </resources>

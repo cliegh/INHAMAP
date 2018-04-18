@@ -27,6 +27,29 @@
                 android:value=".Activities.MainActivity" />
         </activity>
 
+        <activity android:name=".Activities.DestinationFindActivity"
+            android:parentActivityName=".Activities.StartingDoorActivity" >
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.StartingDoorActivity" />
+        </activity>
+
+        <activity android:name=".Activities.DestinationDoorActivity"
+            android:parentActivityName=".Activities.DestinationFindActivity" >
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.DestinationFindActivity" />
+        </activity>
+
+        <activity android:name=".Activities.NavigationActivity"
+            android:parentActivityName=".Activities.DestinationDoorActivity" >
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.DestinationDoorActivity" />
+        </activity>
     </application>
 
 </manifest>

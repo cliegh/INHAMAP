@@ -7,6 +7,18 @@
     tools:context=".Activities.StartingDoorActivity"
     tools:layout_editor_absoluteY="25dp">
 
+    <android.support.v7.widget.Toolbar
+        android:navigationIcon="@drawable/ic_arrow_back_white_24dp"
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/common_google_signin_btn_text_light_focused"
+        android:elevation="4dp"
+        android:theme="@style/ToolbarColored"
+        app:popupTheme="?android:attr/editTextColor"
+        app:titleTextColor="@android:color/white">
+    </android.support.v7.widget.Toolbar>
+
     <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/imageView"
         android:layout_width="match_parent"

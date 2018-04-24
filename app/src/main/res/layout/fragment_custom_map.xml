@@ -15,10 +15,28 @@
             android:layout_height="wrap_content">
 
             <FrameLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/inhamap">
 
+                <!-- ImageButton 속성 지정 시 android:background 와 android:src 를 동시에 지정할 것 -->
+                <!-- ImageButton 뷰의 특성 상 Default Background 가 자동으로 영역 만큼 표시되는 듯 -->
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="400dp"
+                    android:layout_marginTop="400dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/node_icon_1" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="300dp"
+                    android:layout_marginTop="400dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/node_icon_1" />
 
             </FrameLayout>
 

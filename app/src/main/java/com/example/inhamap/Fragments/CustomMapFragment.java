@@ -1,5 +1,6 @@
 package com.example.inhamap.Fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,11 +8,12 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ScrollView;
-import android.widget.TextView;
 
 import com.example.inhamap.R;
+import com.example.inhamap.Utils.AllocateImageButtonInFragment;
 
 /**
  * Created by myown on 2018. 4. 18..
@@ -24,10 +26,14 @@ public class CustomMapFragment extends Fragment implements View.OnTouchListener{
     private static int Xpos = 0;
     private static int Ypos = 0;
     private View view;
+    private ViewGroup viewGroup;
+    private FrameLayout layout;
+    private Context context;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.context = getActivity();
     }
 
     @Nullable
@@ -36,6 +42,7 @@ public class CustomMapFragment extends Fragment implements View.OnTouchListener{
 
         // fragment layout 추가
         View view = inflater.inflate(R.layout.fragment_custom_map, null);
+        this.viewGroup = container;
 
         this.view = view;
         initSetting();
@@ -47,6 +54,8 @@ public class CustomMapFragment extends Fragment implements View.OnTouchListener{
     }
 
     private void initSetting(){
+        layout = (FrameLayout)view.findViewById(R.id.map_fragment_frame_layout);
+
         vScroll = (ScrollView)view.findViewById(R.id.map_fragment_vertical_scroll);
         hScroll = (HorizontalScrollView)view.findViewById(R.id.map_fragment_horizontal_scroll);
 
@@ -55,6 +64,8 @@ public class CustomMapFragment extends Fragment implements View.OnTouchListener{
 
         vScroll.setOnTouchListener(this);
         hScroll.setOnTouchListener(this);
+
+        AllocateImageButtonInFragment allocate = new AllocateImageButtonInFragment(getActivity(), layout);
     }
 
     private void scroll(int x, int y){
@@ -87,4 +98,5 @@ public class CustomMapFragment extends Fragment implements View.OnTouchListener{
         Ypos = (int) event.getRawY();
         return true;
     }
+
 }

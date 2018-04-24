@@ -8,9 +8,17 @@ import java.io.Serializable;
 
 public class DetailInformationItem implements Serializable {
     private int buildingCode;
+    private double userLongitude;
+    private double userLatitude;
 
     public DetailInformationItem(){
         // default constructor
+    }
+
+    public DetailInformationItem(int code, double lat, double lng){
+        this.buildingCode = code;
+        this.userLongitude = lng;
+        this.userLatitude = lat;
     }
 
     public int getBuildingCode() {
@@ -19,5 +27,21 @@ public class DetailInformationItem implements Serializable {
 
     public void setBuildingCode(int buildingCode) {
         this.buildingCode = buildingCode;
+    }
+
+    public double getUserLongitude() {
+        return userLongitude;
+    }
+
+    public void setUserLongitude(double userLongitude) {
+        this.userLongitude = userLongitude;
+    }
+
+    public double getUserLatitude() {
+        return userLatitude;
+    }
+
+    public void setUserLatitude(double userLatitude) {
+        this.userLatitude = userLatitude;
     }
 }

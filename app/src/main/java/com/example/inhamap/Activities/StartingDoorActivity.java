@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.example.inhamap.Adapter.DoorData;
 import com.example.inhamap.Adapter.MyAdapter;
-import com.example.inhamap.Adapter.RecyclerItemClickListener;
 import com.example.inhamap.R;
 import com.github.chrisbanes.photoview.PhotoView;
 
@@ -48,7 +47,7 @@ public class StartingDoorActivity extends AppCompatActivity implements View.OnCl
         //recycler list 뷰 목록 생성
         myDataset.add(new DoorData("하이테크 고층부 문", R.drawable.elevator, R.drawable.wheelchair, R.drawable.stair));
         myDataset.add(new DoorData("하이테크 고층부 문2", R.drawable.elevator, 0, R.drawable.stair));
-        myDataset.add(new DoorData("하이테크 고층부 문3"));
+        myDataset.add(new DoorData("하이테크 고층부 문4"));
         myDataset.add(new DoorData("하이테크 고층부 문4"));
         myDataset.add(new DoorData("하이테크 고층부 문5"));
         myDataset.add(new DoorData("하이테크 고층부 문6"));
@@ -62,17 +61,22 @@ public class StartingDoorActivity extends AppCompatActivity implements View.OnCl
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("경로 선택");
 
+        /* photoview */
         PhotoView photoView = (PhotoView) findViewById(R.id.imageView);
         photoView.setImageResource(R.drawable.hi_2ho_1);
 
-        text = (TextView) findViewById(R.id.textView2);
+        /* textview */
+        TextView textView1 = (TextView) findViewById(R.id.buildingNameTextView) ;
+        textView1.setText("인하대학교 하이테크센터") ;
+
+        text = (TextView) findViewById(R.id.recommendTextView);
         text.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.textView2:// TextView가 클릭될 시 행동할 코드작성
+            case R.id.recommendTextView:// TextView가 클릭될 시 행동할 코드작성
                 Toast.makeText(getApplicationContext(), "추천경로 클릭됨", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, DestinationFindActivity.class);
                 startActivity(intent);

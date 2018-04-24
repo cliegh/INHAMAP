@@ -40,7 +40,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         }
         @Override
         public void onClick(View v) {
-            Toast.makeText(v.getContext(), getPosition() +"번째 문 클릭됨", Toast.LENGTH_LONG).show();
+            Toast.makeText(v.getContext(), getLayoutPosition() +"번째 문 클릭됨", Toast.LENGTH_LONG).show();
             //Intent intent = new Intent(v.getContext(), DestinationFindActivity.class);
             //v.getContext().startActivity(intent);
         }

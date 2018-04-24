@@ -20,6 +20,8 @@
     </android.support.v7.widget.Toolbar>
 
     <LinearLayout
+        android:layout_marginTop="61dp"
+        android:layout_marginBottom="52dp"
         android:orientation="vertical"
         android:id="@+id/main_map_view"
         android:layout_width="match_parent"

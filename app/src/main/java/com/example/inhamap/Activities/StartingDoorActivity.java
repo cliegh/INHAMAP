@@ -45,6 +45,7 @@ public class StartingDoorActivity extends AppCompatActivity implements View.OnCl
         mAdapter = new MyAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
 
+        //recycler list 뷰 목록 생성
         myDataset.add(new DoorData("하이테크 고층부 문", R.drawable.elevator, R.drawable.wheelchair, R.drawable.stair));
         myDataset.add(new DoorData("하이테크 고층부 문2", R.drawable.elevator, 0, R.drawable.stair));
         myDataset.add(new DoorData("하이테크 고층부 문3"));
@@ -66,33 +67,15 @@ public class StartingDoorActivity extends AppCompatActivity implements View.OnCl
 
         text = (TextView) findViewById(R.id.textView2);
         text.setOnClickListener(this);
-
-        mRecyclerView = findViewById(R.id.recycler_view);
-        mRecyclerView.addOnItemTouchListener(
-                new RecyclerItemClickListener(this, mRecyclerView, new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, int position) {
-                        Toast.makeText(getApplicationContext(), "텍뷰2 클릭됨", Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void onLongItemClick(View view, int position) {
-                        // do whatever
-                    }
-                })
-        );
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.textView2:// TextView가 클릭될 시 할 코드작성
-                Toast.makeText(getApplicationContext(), "텍뷰2 클릭됨", Toast.LENGTH_LONG).show();
+            case R.id.textView2:// TextView가 클릭될 시 행동할 코드작성
+                Toast.makeText(getApplicationContext(), "추천경로 클릭됨", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, DestinationFindActivity.class);
                 startActivity(intent);
-                break;
-            case R.id.textView3:
-                Toast.makeText(getApplicationContext(), "텍뷰3 클릭됨", Toast.LENGTH_LONG).show();
                 break;
         }
     }

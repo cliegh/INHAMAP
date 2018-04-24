@@ -1,17 +1,21 @@
 package com.example.inhamap.Adapter;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.inhamap.Activities.DestinationDoorActivity;
+import com.example.inhamap.Activities.DestinationFindActivity;
 import com.example.inhamap.R;
 
 import java.util.ArrayList;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
     private ArrayList<DoorData> mDataset; // 넘겨받는 데이터값.
 
     // Provide a reference to the views for each data item
@@ -20,18 +24,27 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     // 각각의 데이터 아이템에 대한 뷰에게 레퍼런스를 제공한다.
     // 복잡한 데이터 아이템은 각 아이템당 하나 이상의 뷰가 필요할것이다.
     // 그리고 너는 뷰 홀더에서 데이터 아이템에 대한 모든 뷰를 접근하는걸 제공한다.
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         // each data item is just a string in this case
         public TextView mTextView;
         public ImageView mImageView1, mImageView2, mImageView3;
 
         public ViewHolder(View v) { // constructor
             super(v);
+            v.setOnClickListener(this);
+
             mTextView = (TextView)v.findViewById(R.id.textView3);
             mImageView1 = (ImageView)v.findViewById(R.id.imageView3_1);
             mImageView2 = (ImageView)v.findViewById(R.id.imageView3_2);
             mImageView3 = (ImageView)v.findViewById(R.id.imageView3_3);
         }
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(v.getContext(), getPosition() +"번째 문 클릭됨", Toast.LENGTH_LONG).show();
+            //Intent intent = new Intent(v.getContext(), DestinationFindActivity.class);
+            //v.getContext().startActivity(intent);
+        }
+
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)

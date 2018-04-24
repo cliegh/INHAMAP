@@ -47,7 +47,7 @@ public class StartingDoorActivity extends AppCompatActivity implements View.OnCl
         //recycler list 뷰 목록 생성
         myDataset.add(new DoorData("하이테크 고층부 문", R.drawable.elevator, R.drawable.wheelchair, R.drawable.stair));
         myDataset.add(new DoorData("하이테크 고층부 문2", R.drawable.elevator, 0, R.drawable.stair));
-        myDataset.add(new DoorData("하이테크 고층부 문4"));
+        myDataset.add(new DoorData("하이테크 고층부 문3"));
         myDataset.add(new DoorData("하이테크 고층부 문4"));
         myDataset.add(new DoorData("하이테크 고층부 문5"));
         myDataset.add(new DoorData("하이테크 고층부 문6"));

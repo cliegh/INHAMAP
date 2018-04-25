@@ -1,6 +1,5 @@
 package com.example.inhamap.Adapter;
 
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.inhamap.Activities.DestinationDoorActivity;
-import com.example.inhamap.Activities.DestinationFindActivity;
 import com.example.inhamap.R;
 
 import java.util.ArrayList;
@@ -40,7 +37,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         }
         @Override
         public void onClick(View v) {
-            Toast.makeText(v.getContext(), getPosition() +"번째 문 클릭됨", Toast.LENGTH_LONG).show();
+            Toast.makeText(v.getContext(), getLayoutPosition() +"번째 문 클릭됨", Toast.LENGTH_LONG).show();
             //Intent intent = new Intent(v.getContext(), DestinationFindActivity.class);
             //v.getContext().startActivity(intent);
         }

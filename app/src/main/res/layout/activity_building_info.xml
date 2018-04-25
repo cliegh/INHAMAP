@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:navigationIcon="@drawable/ic_arrow_back_white_24dp"
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/common_google_signin_btn_text_light_focused"
+        android:elevation="4dp"
+        android:theme="@style/ToolbarColored"
+        app:popupTheme="?android:attr/editTextColor"
+        app:titleTextColor="@android:color/white">
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/buildingName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/buildingInfoLinear"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/buildingInfoLinear"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/buildingInfo"
+        app:layout_constraintTop_toBottomOf="@+id/buildingName">
+
+        <ImageView
+            android:id="@+id/buildingImage"
+            android:layout_width="190dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            app:layout_constraintEnd_toStartOf="@+id/buildingAddress"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+
+        <TextView
+            android:id="@+id/buildingAddress"
+            android:layout_width="190dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/buildingImage" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/buildingInfo"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buildingInfoLinear" />
+
+</android.support.constraint.ConstraintLayout>

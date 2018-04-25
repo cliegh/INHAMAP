@@ -1,4 +1,4 @@
-package com.example.inhamap.Activities;
+package com.example.inhamap.Lagacy;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.example.inhamap.Adapter.DoorData;
 import com.example.inhamap.Adapter.MyAdapter;
-import com.example.inhamap.Adapter.RecyclerItemClickListener;
 import com.example.inhamap.R;
 import com.github.chrisbanes.photoview.PhotoView;
 

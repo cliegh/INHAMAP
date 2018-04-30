@@ -50,7 +50,7 @@ public final class BuildingInfoDB {
         }
     }
 
-    FeedReaderDbHelper mDbHelper = new FeedReaderDbHelper(getContext());
+   // FeedReaderDbHelper mDbHelper = new FeedReaderDbHelper(getContext());
 
 
 }

@@ -57,7 +57,14 @@ public class BuildingInfoActivity extends AppCompatActivity {
 
         //recycler list 뷰 목록 생성 ==> for문으로 처리하고, 하이테크라는 인자(건물 이름)가 넘어왔을때 문 개수만큼 포문 돌면서 add 생성하도록 하자.
         myDataset.add(new DoorData("하이테크 고층부 문", R.drawable.elevator, R.drawable.wheelchair, R.drawable.stair));
-        this.addlist();
+        myDataset.add(new DoorData("하이테크 고층부 문", R.drawable.elevator, R.drawable.wheelchair, R.drawable.stair));
+        myDataset.add(new DoorData("하이테크 고층부 문", R.drawable.elevator, R.drawable.wheelchair, R.drawable.stair));
+        myDataset.add(new DoorData("하이테크 고층부 문", R.drawable.elevator, R.drawable.wheelchair, R.drawable.stair));
+        myDataset.add(new DoorData("하이테크 고층부 문", R.drawable.elevator, R.drawable.wheelchair, R.drawable.stair));
+        myDataset.add(new DoorData("하이테크 고층부 문", R.drawable.elevator, R.drawable.wheelchair, R.drawable.stair));
+        myDataset.add(new DoorData("하이테크 고층부 문", R.drawable.elevator, R.drawable.wheelchair, R.drawable.stair));
+        myDataset.add(new DoorData("하이테크 고층부 문", R.drawable.elevator, R.drawable.wheelchair, R.drawable.stair));
+
     }
 
     /* toolbar 생성하는 함수 */
@@ -69,10 +76,4 @@ public class BuildingInfoActivity extends AppCompatActivity {
         return true;
     }
 
-    public void addlist(){
-        for(int i=0;i<buildDoor.length;i++) {
-            //myDataset.add(new DoorData("하이테크 고층부 문", R.drawable.elevator, R.drawable.wheelchair, R.drawable.stair));
-            myDataset.add(new DoorData(buildDoor[i].name, buildDoor[i].elevator, buildDoor[i].wheelchair, buildDoor[i].stair));
-        }
-    }
 }

@@ -1,17 +1,29 @@
 package com.example.inhamap.Fragments;
 
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.ScaleAnimation;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ScrollView;
 
+import com.example.inhamap.Components.PathDrawingSurfaceView;
+import com.example.inhamap.Components.TestDrawingView;
 import com.example.inhamap.R;
 import com.example.inhamap.Utils.AllocateImageButtonInFragment;
 
@@ -29,6 +41,9 @@ public class CustomMapFragment extends Fragment implements View.OnTouchListener{
     private ViewGroup viewGroup;
     private FrameLayout layout;
     private Context context;
+    private GestureDetector gestureDetector;
+    private ScaleGestureDetector scaleGestureDetector;
+    private float curScale = 1f;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,8 +58,9 @@ public class CustomMapFragment extends Fragment implements View.OnTouchListener{
         // fragment layout 추가
         View view = inflater.inflate(R.layout.fragment_custom_map, null);
         this.viewGroup = container;
-
+        this.viewGroup.setWillNotDraw(false);
         this.view = view;
+        this.view.setWillNotDraw(false);
         initSetting();
         return view;
     }
@@ -65,7 +81,50 @@ public class CustomMapFragment extends Fragment implements View.OnTouchListener{
         vScroll.setOnTouchListener(this);
         hScroll.setOnTouchListener(this);
 
+        //scaleGestureDetector = new ScaleGestureDetector(this.context, new MyOnScaleGestureListener());
+        //gestureDetector = new GestureDetector(this.context, new MyGestureListener());
+
+        //layout.setWillNotDraw(false);
+        TestDrawingView tv = (TestDrawingView)view.findViewById(R.id.map_fragment_surface_view);
+        //layout.addView(tv);
+        //tv.invalidate();
+
         AllocateImageButtonInFragment allocate = new AllocateImageButtonInFragment(getActivity(), layout);
+        // attach surface view
+        //PathDrawingSurfaceView sv = (PathDrawingSurfaceView)view.findViewById(R.id.map_fragment_surface_view);
+        /*
+        SurfaceView sv = (SurfaceView)view.findViewById(R.id.map_fragment_surface_view);
+        sv.setWillNotDraw(false);
+        sv.setZOrderOnTop(true);
+        SurfaceHolder holder = sv.getHolder();
+        holder.addCallback(new SurfaceHolder.Callback() {
+            @Override
+            public void surfaceCreated(SurfaceHolder holder) {
+                Log.e("SURFACE_VIEW", "SurfaceView created.");
+                Canvas canvas = holder.lockCanvas();
+                Paint paint = new Paint();
+                paint.setColor(Color.BLACK);
+                paint.setStrokeWidth(10f);
+                if(canvas == null){
+                    Log.e("ERROR", "canvas is null");
+                }
+                if(paint == null){
+                    Log.e("ERROR", "paint is null");
+                }
+                canvas.drawLine(10f, 10f, 100f, 100f, paint);
+            }
+
+            @Override
+            public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+
+            }
+
+            @Override
+            public void surfaceDestroyed(SurfaceHolder holder) {
+
+            }
+        });
+        */
     }
 
     private void scroll(int x, int y){
@@ -75,6 +134,8 @@ public class CustomMapFragment extends Fragment implements View.OnTouchListener{
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+        //scaleGestureDetector.onTouchEvent(event);
+        //gestureDetector.onTouchEvent(event);
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 Xpos = (int) event.getRawX();
@@ -96,7 +157,50 @@ public class CustomMapFragment extends Fragment implements View.OnTouchListener{
             }
         Xpos = (int) event.getRawX();
         Ypos = (int) event.getRawY();
+        v.invalidate();
         return true;
     }
 
+    public class MyOnScaleGestureListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+        @Override
+        public boolean onScale(ScaleGestureDetector detector) {
+            float scaleFactor = 1 - detector.getScaleFactor();
+            //Log.e("ZOOM", Float.toString(scaleFactor));
+            float prevScale = curScale;
+            curScale += scaleFactor;
+            if(curScale < 1f){
+                curScale = 1f;
+            }
+            if(curScale > 1.4f){
+                curScale = 1.4f;
+            }
+            ScaleAnimation scaleAnimation = new ScaleAnimation(1f/prevScale, 1f/curScale, 1f/prevScale, 1f/curScale, detector.getFocusX(), detector.getFocusY());
+            scaleAnimation.setDuration(0);
+            scaleAnimation.setFillAfter(true);
+            layout.startAnimation(scaleAnimation);
+            return true;
+        }
+
+        @Override
+        public boolean onScaleBegin(ScaleGestureDetector detector) {
+            return true;
+        }
+
+        @Override
+        public void onScaleEnd(ScaleGestureDetector detector) {
+
+        }
+    }
+
+    public class MyGestureListener extends GestureDetector.SimpleOnGestureListener{
+        @Override
+        public boolean onDown(MotionEvent e) {
+            return true;
+        }
+
+        @Override
+        public boolean onDoubleTap(MotionEvent e) {
+            return true;
+        }
+    }
 }

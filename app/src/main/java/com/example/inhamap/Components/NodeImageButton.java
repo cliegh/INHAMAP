@@ -21,13 +21,15 @@ public class NodeImageButton extends AppCompatImageButton {
 
     public NodeImageButton(Context context, NodeItem item){
         super(context);
+        boolean isEdge = false;
         switch (item.getNodeStatus()){
             case 0:{
-                this.setBackgroundResource(R.drawable.node_icon_1);
+                this.setBackgroundResource(R.drawable.default_door);
                 break;
             }
             case 1:{
-                this.setBackgroundResource(R.drawable.node_icon_4);
+                isEdge = true;
+                this.setBackgroundResource(R.drawable.edge_image);
                 break;
             }
             case 2:{
@@ -35,11 +37,11 @@ public class NodeImageButton extends AppCompatImageButton {
                 break;
             }
             case 3:{
-                this.setBackgroundResource(R.drawable.node_icon_2);
+                this.setBackgroundResource(R.drawable.start_door);
                 break;
             }
             case 4:{
-                this.setBackgroundResource(R.drawable.node_icon_5);
+                this.setBackgroundResource(R.drawable.destination_door);
                 break;
             }
             default:{
@@ -47,24 +49,32 @@ public class NodeImageButton extends AppCompatImageButton {
                 break;
             }
         }
-        // 버튼의 영역을 30dp 로 고정
-        final int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 25, getResources().getDisplayMetrics());
-        final int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 25, getResources().getDisplayMetrics());
-        FrameLayout.LayoutParams p = new FrameLayout.LayoutParams(width, height);
 
+        // 버튼의 영역을 30dp 로 고정
+        FrameLayout.LayoutParams p;
         float d = context.getResources().getDisplayMetrics().density;
-        p.setMargins((int)(d*item.getMarginLeft()), (int)(d*item.getMarginTop()), 0, 0);
+        if(isEdge){
+            final int width1 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getResources().getDisplayMetrics());
+            final int height1 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getResources().getDisplayMetrics());
+            p = new FrameLayout.LayoutParams(width1, height1);
+            p.setMargins((int)(d*item.getMarginLeft()) - 5, (int)(d*item.getMarginTop()) - 5, 0, 0);
+        }else{
+            final int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 25, getResources().getDisplayMetrics());
+            final int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 25, getResources().getDisplayMetrics());
+            p = new FrameLayout.LayoutParams(width, height);
+            p.setMargins((int)(d*item.getMarginLeft()) - 25, (int)(d*item.getMarginTop()) - 25, 0, 0);
+        }
         this.setLayoutParams(p);
     }
 
     public void setBackgroundImageByStatus(int status){
         switch (status){
             case 0:{
-                this.setBackgroundResource(R.drawable.node_icon_1);
+                this.setBackgroundResource(R.drawable.default_door);
                 break;
             }
             case 1:{
-                this.setBackgroundResource(R.drawable.node_icon_4);
+                this.setBackgroundResource(R.drawable.edge_image);
                 break;
             }
             case 2:{
@@ -72,11 +82,11 @@ public class NodeImageButton extends AppCompatImageButton {
                 break;
             }
             case 3:{
-                this.setBackgroundResource(R.drawable.node_icon_2);
+                this.setBackgroundResource(R.drawable.start_door);
                 break;
             }
             case 4:{
-                this.setBackgroundResource(R.drawable.node_icon_5);
+                this.setBackgroundResource(R.drawable.destination_door);
                 break;
             }
             default:{

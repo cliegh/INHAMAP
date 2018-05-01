@@ -1,6 +1,7 @@
 package com.example.inhamap.Utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,9 +12,12 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.example.inhamap.Activities.BuildingInfoActivity;
 import com.example.inhamap.Components.NodeImageButton;
 import com.example.inhamap.Components.TestDrawingView;
+import com.example.inhamap.Models.EdgeList;
 import com.example.inhamap.Models.NodeItem;
+import com.example.inhamap.PathFindings.FindPath;
 import com.example.inhamap.R;
 
 import java.util.ArrayList;
@@ -28,10 +32,17 @@ public class AllocateImageButtonInFragment {
     private FrameLayout frameLayout;
 
     // test code
-    private ArrayList<NodeItem> list;
     private ArrayList<NodeImageButton> btnList;
     private NodeImageButton startNodeButton;
     private NodeImageButton destinationNodeButton;
+
+    //related path
+    private ArrayList<NodeItem> list;
+    private EdgeList edges;
+    private boolean isStartButtonSet = false;
+    private int pressedStartButtonIndex = -1;
+    private boolean isDestinationButtonSet = false;
+    private int pressedDestinationButtonIndex = -1;
 
     public AllocateImageButtonInFragment(final Context context, final FrameLayout layout){
         this.context = context;
@@ -47,7 +58,11 @@ public class AllocateImageButtonInFragment {
         this.btnList = new ArrayList<NodeImageButton>();
         initList();
         for(int i = 0; i < this.list.size(); i++){
-            NodeImageButton btn = new NodeImageButton(this.context, this.list.get(i));
+            if(this.list.get(i).getNodeStatus() == 1){
+                // status 1 means this node is intersection. So this node is not shown on map.
+                continue;
+            }
+            final NodeImageButton btn = new NodeImageButton(this.context, this.list.get(i));
             this.btnList.add(btn);
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -89,11 +104,32 @@ public class AllocateImageButtonInFragment {
                         @Override
                         public void onClick(View v) {
                             Log.e("POPUP", "출발");
-                            if(startNodeButton != null){
+                            if(isStartButtonSet){
                                 startNodeButton.setBackgroundImageByStatus(0);
+                                if(buttonIndex != pressedStartButtonIndex){
+                                    startNodeButton = btnList.get(buttonIndex);
+                                    startNodeButton.setBackgroundImageByStatus(3);
+                                    pressedStartButtonIndex = buttonIndex;
+                                }else{
+                                    startNodeButton = null;
+                                    isStartButtonSet = false;
+                                    pressedStartButtonIndex = -1;
+                                }
+                            }else{
+                                startNodeButton = btnList.get(buttonIndex);
+                                startNodeButton.setBackgroundImageByStatus(3);
+                                isStartButtonSet = true;
+                                pressedStartButtonIndex = buttonIndex;
                             }
-                            startNodeButton = btnList.get(buttonIndex);
-                            startNodeButton.setBackgroundImageByStatus(3);
+                            if(isStartButtonSet && isDestinationButtonSet){
+                                long startNodeID = list.get(pressedStartButtonIndex).getNodeID();
+                                long destinationNodeID = list.get(pressedDestinationButtonIndex).getNodeID();
+                                Log.e("FIND_PATH", "Find path " + Long.toString(startNodeID) + " to " + Long.toString(destinationNodeID));
+                                FindPath find = new FindPath(list, edges, startNodeID, destinationNodeID);
+                                EdgeList path = find.getPaths();
+                                Log.e("FIND_PATH", "Path size : " + Integer.toString(path.size()));
+                                test.drawEdges(path);
+                            }
                             popup.dismiss();
                         }
                     });
@@ -102,11 +138,32 @@ public class AllocateImageButtonInFragment {
                         @Override
                         public void onClick(View v) {
                             Log.e("POPUP", "도착");
-                            if(destinationNodeButton != null){
+                            if(isDestinationButtonSet){
                                 destinationNodeButton.setBackgroundImageByStatus(0);
+                                if(buttonIndex != pressedDestinationButtonIndex){
+                                    destinationNodeButton = btnList.get(buttonIndex);
+                                    destinationNodeButton.setBackgroundImageByStatus(4);
+                                    pressedDestinationButtonIndex = buttonIndex;
+                                }else{
+                                    destinationNodeButton = null;
+                                    isDestinationButtonSet = false;
+                                    pressedDestinationButtonIndex = -1;
+                                }
+                            }else{
+                                destinationNodeButton = btnList.get(buttonIndex);
+                                destinationNodeButton.setBackgroundImageByStatus(4);
+                                isDestinationButtonSet = true;
+                                pressedDestinationButtonIndex = buttonIndex;
                             }
-                            destinationNodeButton = btnList.get(buttonIndex);
-                            destinationNodeButton.setBackgroundImageByStatus(4);
+                            if(isStartButtonSet && isDestinationButtonSet){
+                                long startNodeID = list.get(pressedStartButtonIndex).getNodeID();
+                                long destinationNodeID = list.get(pressedDestinationButtonIndex).getNodeID();
+                                Log.e("FIND_PATH", "Find path " + Long.toString(startNodeID) + " to " + Long.toString(destinationNodeID));
+                                FindPath find = new FindPath(list, edges, startNodeID, destinationNodeID);
+                                EdgeList path = find.getPaths();
+                                Log.e("FIND_PATH", "Path size : " + Integer.toString(path.size()));
+                                test.drawEdges(path);
+                            }
                             popup.dismiss();
                         }
                     });
@@ -115,11 +172,23 @@ public class AllocateImageButtonInFragment {
                         @Override
                         public void onClick(View v) {
                             Log.e("POPUP", "상세");
+                            /*
+                            if(list.get(buttonIndex).getNodeStatus() == 1){
+                                popup.dismiss();
+                                return;
+                            }
                             if(test == null){
                                 Log.e("TEST", "test is null");
                                 return;
                             }
-                            test.drawLine(30f, 30f, 1000f, 1000f);
+                            if(!test.isEdgeDraw()){
+                                test.drawEdges(edges);
+                            }else{
+                                test.clearEdges();
+                            }
+                            */
+                            Intent it = new Intent(context, BuildingInfoActivity.class);
+                            context.startActivity(it);
                         }
                     });
 
@@ -139,6 +208,8 @@ public class AllocateImageButtonInFragment {
     private void initList(){
         JSONFileParser json = new JSONFileParser(this.context, "node_data");
         NodeListMaker list = new NodeListMaker(json.getJSON());
+        EdgeListMaker edges = new EdgeListMaker(json.getJSON());
+        this.edges = edges.getEdges();
         ArrayList<NodeItem> items = list.getItems();
         for(int i = 0; i < items.size(); i++){
             this.list.add(items.get(i));

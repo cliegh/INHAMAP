@@ -12,6 +12,7 @@ public class NodeItem {
     private String nodeName;
     private double nodeLongitude;
     private double nodeLatitude;
+    private long nodeID;
 
     public NodeItem(int status, int left, int top, String name, double lat, double lng){
         this.nodeStatus = status;
@@ -20,6 +21,17 @@ public class NodeItem {
         this.nodeName = name;
         this.nodeLongitude = lng;
         this.nodeLatitude = lat;
+        this.nodeID = 0;
+    }
+
+    public NodeItem(int status, int left, int top, String name, double lat, double lng, long id){
+        this.nodeStatus = status;
+        this.marginTop = top - 10;
+        this.marginLeft = left- 5;
+        this.nodeName = name;
+        this.nodeLongitude = lng;
+        this.nodeLatitude = lat;
+        this.nodeID = id;
     }
 
     public int getNodeStatus() {
@@ -68,5 +80,13 @@ public class NodeItem {
 
     public void setNodeLatitude(double nodeLatitude) {
         this.nodeLatitude = nodeLatitude;
+    }
+
+    public long getNodeID() {
+        return nodeID;
+    }
+
+    public void setNodeID(long nodeID) {
+        this.nodeID = nodeID;
     }
 }

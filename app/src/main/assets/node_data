@@ -9,7 +9,10 @@
       "screenLeftPosition" : 1167,
       "screenTopPosition" : 50,
       "adjacent" : [
-        1378
+        {
+          "nodeID" : 1378,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -21,7 +24,10 @@
       "screenLeftPosition" : 1271,
       "screenTopPosition" : 105,
       "adjacent" : [
-        1374
+        {
+          "nodeID" : 1374,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -33,7 +39,10 @@
       "screenLeftPosition" : 1380,
       "screenTopPosition" : 132,
       "adjacent" : [
-        1373
+        {
+          "nodeID" : 1373,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -45,7 +54,10 @@
       "screenLeftPosition" : 1410,
       "screenTopPosition" : 167,
       "adjacent" : [
-        1375
+        {
+          "nodeID" : 1375,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -57,7 +69,10 @@
       "screenLeftPosition" : 1104,
       "screenTopPosition" : 134,
       "adjacent" : [
-        991
+        {
+          "nodeID" : 991,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -69,7 +84,10 @@
       "screenLeftPosition" : 996,
       "screenTopPosition" : 134,
       "adjacent" : [
-        1383
+        {
+          "nodeID" : 1383,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -81,7 +99,10 @@
       "screenLeftPosition" : 917,
       "screenTopPosition" : 173,
       "adjacent" : [
-        1385
+        {
+          "nodeID" : 1385,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -93,7 +114,10 @@
       "screenLeftPosition" : 952,
       "screenTopPosition" : 211,
       "adjacent" : [
-        1387
+        {
+          "nodeID" : 1387,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -105,7 +129,10 @@
       "screenLeftPosition" : 1097,
       "screenTopPosition" : 173,
       "adjacent" : [
-        1390
+        {
+          "nodeID" : 1390,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -117,7 +144,10 @@
       "screenLeftPosition" : 1097,
       "screenTopPosition" : 248,
       "adjacent" : [
-        1390
+        {
+          "nodeID" : 1390,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -129,7 +159,10 @@
       "screenLeftPosition" : 1044,
       "screenTopPosition" : 253,
       "adjacent" : [
-        1389
+        {
+          "nodeID" : 1389,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -141,7 +174,10 @@
       "screenLeftPosition" : 1012,
       "screenTopPosition" : 348,
       "adjacent" : [
-        1388
+        {
+          "nodeID" : 1388,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -153,7 +189,10 @@
       "screenLeftPosition" : 920,
       "screenTopPosition" : 374,
       "adjacent" : [
-        1391
+        {
+          "nodeID" : 1391,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -165,7 +204,10 @@
       "screenLeftPosition" : 1030,
       "screenTopPosition" : 405,
       "adjacent" : [
-        1393
+        {
+          "nodeID" : 1393,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -177,7 +219,10 @@
       "screenLeftPosition" : 1139,
       "screenTopPosition" : 379,
       "adjacent" : [
-        1395
+        {
+          "nodeID" : 1395,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -189,7 +234,10 @@
       "screenLeftPosition" : 1141,
       "screenTopPosition" : 301,
       "adjacent" : [
-        1396
+        {
+          "nodeID" : 1396,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -201,7 +249,14 @@
       "screenLeftPosition" : 902,
       "screenTopPosition" : 126,
       "adjacent" : [
-        1383, 1385
+        {
+          "nodeID" : 1383,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1385,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -213,7 +268,18 @@
       "screenLeftPosition" : 902,
       "screenTopPosition" : 174,
       "adjacent" : [
-        1384, 1233, 1386
+        {
+          "nodeID" : 1384,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1233,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1386,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -225,7 +291,18 @@
       "screenLeftPosition" : 900,
       "screenTopPosition" : 283,
       "adjacent" : [
-        1385, 1387, 1391
+        {
+          "nodeID" : 1385,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1387,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1391,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -237,7 +314,18 @@
       "screenLeftPosition" : 952,
       "screenTopPosition" : 260,
       "adjacent" : [
-        1372, 1386, 1388
+        {
+          "nodeID" : 1372,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1386,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1388,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -249,7 +337,18 @@
       "screenLeftPosition" : 1010,
       "screenTopPosition" : 257,
       "adjacent" : [
-        1387, 1296, 1389
+        {
+          "nodeID" : 1387,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1296,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1389,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -261,7 +360,18 @@
       "screenLeftPosition" : 1043,
       "screenTopPosition" : 230,
       "adjacent" : [
-        1388, 1281, 1390
+        {
+          "nodeID" : 1388,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1281,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1390,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -273,7 +383,18 @@
       "screenLeftPosition" : 1094,
       "screenTopPosition" : 227,
       "adjacent" : [
-        1259, 1389, 1273
+        {
+          "nodeID" : 1259,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1389,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1273,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -285,7 +406,18 @@
       "screenLeftPosition" : 897,
       "screenTopPosition" : 374,
       "adjacent" : [
-        1386, 1391, 1392
+        {
+          "nodeID" : 1386,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1391,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1392,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -297,7 +429,14 @@
       "screenLeftPosition" : 897,
       "screenTopPosition" : 425,
       "adjacent" : [
-        1391, 1393
+        {
+          "nodeID" : 1391,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1393,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -309,7 +448,18 @@
       "screenLeftPosition" : 1030,
       "screenTopPosition" : 427,
       "adjacent" : [
-        1392, 1316, 1394
+        {
+          "nodeID" : 1392,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1316,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1394,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -321,7 +471,14 @@
       "screenLeftPosition" : 1161,
       "screenTopPosition" : 427,
       "adjacent" : [
-        1393, 1395
+        {
+          "nodeID" : 1393,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1395,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -333,7 +490,18 @@
       "screenLeftPosition" : 1161,
       "screenTopPosition" : 379,
       "adjacent" : [
-        1333, 1394, 1396
+        {
+          "nodeID" : 1333,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1394,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1396,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -345,7 +513,18 @@
       "screenLeftPosition" : 1161,
       "screenTopPosition" : 303,
       "adjacent" : [
-        1345, 1395, 1397
+        {
+          "nodeID" : 1345,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1395,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1397,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -357,7 +536,18 @@
       "screenLeftPosition" : 1162,
       "screenTopPosition" : 268,
       "adjacent" : [
-        1396, 1398, 1399
+        {
+          "nodeID" : 1396,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1398,
+          "edgeStatus" : 1
+        },
+        {
+          "nodeID" : 1399,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -369,7 +559,14 @@
       "screenLeftPosition" : 1217,
       "screenTopPosition" : 263,
       "adjacent" : [
-        1397, 1400
+        {
+          "nodeID" : 1397,
+          "edgeStatus" : 1
+        },
+        {
+          "nodeID" : 1400,
+          "edgeStatus" : 1
+        }
       ]
     },
     {
@@ -381,7 +578,14 @@
       "screenLeftPosition" : 1268,
       "screenTopPosition" : 262,
       "adjacent" : [
-        1377
+        {
+          "nodeID" : 1377,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1398,
+          "edgeStatus" : 1
+        }
       ]
     },
     {
@@ -393,7 +597,18 @@
       "screenLeftPosition" : 1264,
       "screenTopPosition" : 238,
       "adjacent" : [
-        1400, 1378, 1376
+        {
+          "nodeID" : 1400,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1378,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1376,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -405,7 +620,18 @@
       "screenLeftPosition" : 1277,
       "screenTopPosition" : 220,
       "adjacent" : [
-        1377, 1374, 990
+        {
+          "nodeID" : 1377,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1374,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 990,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -417,7 +643,14 @@
       "screenLeftPosition" : 1297,
       "screenTopPosition" : 203,
       "adjacent" : [
-        1376, 1375
+        {
+          "nodeID" : 1376,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1375,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -429,7 +662,14 @@
       "screenLeftPosition" : 1401,
       "screenTopPosition" : 187,
       "adjacent" : [
-        990, 1194
+        {
+          "nodeID" : 990,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1194,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -441,7 +681,22 @@
       "screenLeftPosition" : 1271,
       "screenTopPosition" : 127,
       "adjacent" : [
-        1376, 1373, 1380, 1370
+        {
+          "nodeID" : 1376,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1373,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1380,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1370,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -453,7 +708,14 @@
       "screenLeftPosition" : 1366,
       "screenTopPosition" : 125,
       "adjacent" : [
-        1374, 1167
+        {
+          "nodeID" : 1374,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1167,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -465,7 +727,14 @@
       "screenLeftPosition" : 1243,
       "screenTopPosition" : 122,
       "adjacent" : [
-        1379, 1374
+        {
+          "nodeID" : 1379,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1374,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -477,7 +746,14 @@
       "screenLeftPosition" : 1218,
       "screenTopPosition" : 77,
       "adjacent" : [
-        1378, 1380
+        {
+          "nodeID" : 1378,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1380,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -489,7 +765,22 @@
       "screenLeftPosition" : 1178,
       "screenTopPosition" : 77,
       "adjacent" : [
-        1212, 1381, 1379, 1377
+        {
+          "nodeID" : 1212,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1381,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1379,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1377,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -501,7 +792,18 @@
       "screenLeftPosition" : 1159,
       "screenTopPosition" : 84,
       "adjacent" : [
-        1378, 1399, 1382
+        {
+          "nodeID" : 1378,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1399,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1382,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -513,7 +815,14 @@
       "screenLeftPosition" : 1165,
       "screenTopPosition" : 121,
       "adjacent" : [
-        1381, 1397
+        {
+          "nodeID" : 1381,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1397,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -525,7 +834,14 @@
       "screenLeftPosition" : 1103,
       "screenTopPosition" : 95,
       "adjacent" : [
-        1383, 991
+        {
+          "nodeID" : 1383,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 991,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -537,7 +853,18 @@
       "screenLeftPosition" : 996,
       "screenTopPosition" : 110,
       "adjacent" : [
-        1382, 1223, 1384
+        {
+          "nodeID" : 1382,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1223,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1384,
+          "edgeStatus" : 0
+        }
       ]
     },
     {
@@ -549,7 +876,14 @@
       "screenLeftPosition" : 1103,
       "screenTopPosition" : 120,
       "adjacent" : [
-        1217, 1382
+        {
+          "nodeID" : 1217,
+          "edgeStatus" : 0
+        },
+        {
+          "nodeID" : 1382,
+          "edgeStatus" : 0
+        }
       ]
     }
   ]

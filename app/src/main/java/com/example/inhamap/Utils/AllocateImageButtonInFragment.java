@@ -10,10 +10,12 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.inhamap.Activities.BuildingInfoActivity;
 import com.example.inhamap.Components.NodeImageButton;
+import com.example.inhamap.Components.OptionSelectDialog;
 import com.example.inhamap.Components.TestDrawingView;
 import com.example.inhamap.Models.EdgeList;
 import com.example.inhamap.Models.NodeItem;
@@ -29,7 +31,7 @@ import java.util.ArrayList;
 public class AllocateImageButtonInFragment {
 
     private Context context;
-    private FrameLayout frameLayout;
+    private RelativeLayout frameLayout;
 
     // test code
     private ArrayList<NodeImageButton> btnList;
@@ -44,7 +46,7 @@ public class AllocateImageButtonInFragment {
     private boolean isDestinationButtonSet = false;
     private int pressedDestinationButtonIndex = -1;
 
-    public AllocateImageButtonInFragment(final Context context, final FrameLayout layout){
+    public AllocateImageButtonInFragment(final Context context, final RelativeLayout layout){
         this.context = context;
         this.frameLayout = layout;
 
@@ -106,6 +108,7 @@ public class AllocateImageButtonInFragment {
                             Log.e("POPUP", "출발");
                             if(isStartButtonSet){
                                 startNodeButton.setBackgroundImageByStatus(0);
+                                test.clearEdges();
                                 if(buttonIndex != pressedStartButtonIndex){
                                     startNodeButton = btnList.get(buttonIndex);
                                     startNodeButton.setBackgroundImageByStatus(3);
@@ -124,11 +127,7 @@ public class AllocateImageButtonInFragment {
                             if(isStartButtonSet && isDestinationButtonSet){
                                 long startNodeID = list.get(pressedStartButtonIndex).getNodeID();
                                 long destinationNodeID = list.get(pressedDestinationButtonIndex).getNodeID();
-                                Log.e("FIND_PATH", "Find path " + Long.toString(startNodeID) + " to " + Long.toString(destinationNodeID));
-                                FindPath find = new FindPath(list, edges, startNodeID, destinationNodeID);
-                                EdgeList path = find.getPaths();
-                                Log.e("FIND_PATH", "Path size : " + Integer.toString(path.size()));
-                                test.drawEdges(path);
+                                findPathAndDraw(startNodeID, destinationNodeID, test);
                             }
                             popup.dismiss();
                         }
@@ -140,6 +139,7 @@ public class AllocateImageButtonInFragment {
                             Log.e("POPUP", "도착");
                             if(isDestinationButtonSet){
                                 destinationNodeButton.setBackgroundImageByStatus(0);
+                                test.clearEdges();
                                 if(buttonIndex != pressedDestinationButtonIndex){
                                     destinationNodeButton = btnList.get(buttonIndex);
                                     destinationNodeButton.setBackgroundImageByStatus(4);
@@ -158,11 +158,7 @@ public class AllocateImageButtonInFragment {
                             if(isStartButtonSet && isDestinationButtonSet){
                                 long startNodeID = list.get(pressedStartButtonIndex).getNodeID();
                                 long destinationNodeID = list.get(pressedDestinationButtonIndex).getNodeID();
-                                Log.e("FIND_PATH", "Find path " + Long.toString(startNodeID) + " to " + Long.toString(destinationNodeID));
-                                FindPath find = new FindPath(list, edges, startNodeID, destinationNodeID);
-                                EdgeList path = find.getPaths();
-                                Log.e("FIND_PATH", "Path size : " + Integer.toString(path.size()));
-                                test.drawEdges(path);
+                                findPathAndDraw(startNodeID, destinationNodeID, test);
                             }
                             popup.dismiss();
                         }
@@ -208,8 +204,8 @@ public class AllocateImageButtonInFragment {
     private void initList(){
         JSONFileParser json = new JSONFileParser(this.context, "node_data");
         NodeListMaker list = new NodeListMaker(json.getJSON());
-        EdgeListMaker edges = new EdgeListMaker(json.getJSON());
-        this.edges = edges.getEdges();
+        //EdgeListMaker edges = new EdgeListMaker(json.getJSON());
+        //this.edges = edges.getEdges();
         ArrayList<NodeItem> items = list.getItems();
         for(int i = 0; i < items.size(); i++){
             this.list.add(items.get(i));
@@ -264,5 +260,10 @@ public class AllocateImageButtonInFragment {
         this.list.add(new NodeItem(1,1104,120, "edge1", 0.0f, 0.0f));
         this.list.add(new NodeItem(1,1162,120, "edge1", 0.0f, 0.0f));
         */
+    }
+
+    private void findPathAndDraw(long startID, long destinationID, TestDrawingView view){
+        OptionSelectDialog dialog = new OptionSelectDialog(this.context, "경로 찾기", "출발 지점에서 도착 지점까지 경로를 탐색합니다.", view, startID, destinationID);
+        dialog.show();
     }
 }

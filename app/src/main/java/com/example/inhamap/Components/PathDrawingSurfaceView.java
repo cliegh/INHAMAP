@@ -37,9 +37,9 @@ public class PathDrawingSurfaceView extends SurfaceView implements SurfaceHolder
         Log.e("SURFACE_VIEW", "View created.");
         this.context = context;
         holder = getHolder();
+        getHolder().addCallback(this);
         this.setZOrderOnTop(true);
         this.holder.setFormat(PixelFormat.TRANSPARENT);
-        this.holder.addCallback(this);
         this.thread = new DrawOnSurfaceViewThread();
     }
 

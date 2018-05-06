@@ -15,7 +15,9 @@ import java.util.ArrayList;
 public class EdgeListMaker {
     private EdgeList edges;
     private ArrayList<NodeItem> nodes;
+    private int cnt = 0;
 
+    /*
     public EdgeListMaker(JSONObject json){
         this.edges = new EdgeList();
         NodeListMaker nodeList = new NodeListMaker(json);
@@ -28,10 +30,13 @@ public class EdgeListMaker {
                 NodeItem tmp1 = findBodeByID(curNodeID);
                 JSONArray adj = node.getJSONArray("adjacent");
                 for(int j = 0; j < adj.length(); j++){
-                    long adjNodeID = adj.getLong(j);
+                    JSONObject adjNode = adj.getJSONObject(j);
+                    long adjNodeID = adjNode.getLong("nodeID");
                     NodeItem tmp2 = findBodeByID(adjNodeID);
                     if(tmp1 != null && tmp2 != null){
                         this.edges.addEdge(tmp1, tmp2);
+                        Log.e(Long.toString(curNodeID), Integer.toString(cnt));
+                        cnt++;
                     }
                 }
             }
@@ -39,6 +44,40 @@ public class EdgeListMaker {
             jsonEx.printStackTrace();
         }
         Log.e("EDGE", Integer.toString(this.edges.size()));
+    }
+    */
+
+    public EdgeListMaker(JSONObject json, int findStatus){
+        this.edges = new EdgeList();
+        NodeListMaker nodeList = new NodeListMaker(json);
+        this.nodes = nodeList.getItems();
+        try{
+            JSONArray arr = json.getJSONArray("nodeList");
+            for(int i = 0; i < arr.length(); i++){
+                JSONObject node = arr.getJSONObject(i);
+                long curNodeID = node.getLong("nodeID");
+                NodeItem tmp1 = findBodeByID(curNodeID);
+                JSONArray adj = node.getJSONArray("adjacent");
+                for(int j = 0; j < adj.length(); j++){
+                    JSONObject adjNode = adj.getJSONObject(j);
+                    int status = adjNode.getInt("edgeStatus");
+                    if(findStatus == 1){
+                        if(status == 1){
+                            continue;
+                        }
+                    }
+                    long adjNodeID = adjNode.getLong("nodeID");
+                    NodeItem tmp2 = findBodeByID(adjNodeID);
+                    if(tmp1 != null && tmp2 != null){
+                        this.edges.addEdge(tmp1, tmp2);
+                        //Log.e(Long.toString(curNodeID), Integer.toString(cnt));
+                        //cnt++;
+                    }
+                }
+            }
+        }catch (JSONException jsonEx){
+            jsonEx.printStackTrace();
+        }
     }
 
     private NodeItem findBodeByID(long id){

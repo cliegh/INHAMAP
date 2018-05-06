@@ -93,7 +93,6 @@ public class FindPath {
 
     private void dijkstra(){
         this.dist[nodeID2Index(startNodeID)] = 0;
-
         for(int k = 0; k < this.size; k++){
             double m = DefaultValue.INFINITE_DISTANCE_DOUBLE_VALUE + 1.0f;
             int x = -1;
@@ -103,7 +102,7 @@ public class FindPath {
                     x = i;
                 }
             }
-
+            //Log.e("CHECK", Integer.toString(x));
             this.check[x] = 1;
             for(int i = 0; i < this.size; i++){
                 //Log.e("DIST", "dist[i] : " + Double.toString(this.dist[i]) + " , dist[x] : " + Double.toString(this.dist[x]) + " , adj[x][i] : " + Double.toString(this.adj[x][i]) + " , ressult : " + Double.toString(this.dist[x] + this.adj[x][i]));
@@ -118,7 +117,7 @@ public class FindPath {
 
     private void findRoute(int x){
         // build path by reverse recursive search to destination node until start node.
-        Log.e("FIND_ROUTE", Long.toString(this.memo[x].nodeID));
+        //Log.e("FIND_ROUTE", Long.toString(this.memo[x].nodeID));
         if(this.memo[x].nodeID == startNodeID){
             return;
         }

@@ -5,5 +5,5 @@ package com.example.inhamap.Commons;
  */
 
 public class DefaultValue {
-    public static double INFINITE_DISTANCE_DOUBLE_VALUE = Double.MAX_VALUE;
+    public static double INFINITE_DISTANCE_DOUBLE_VALUE = Double.MAX_VALUE - 1f;
 }

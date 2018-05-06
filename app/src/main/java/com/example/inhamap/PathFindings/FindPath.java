@@ -1,5 +1,7 @@
 package com.example.inhamap.PathFindings;
 
+import android.util.Log;
+
 import com.example.inhamap.Commons.DefaultValue;
 import com.example.inhamap.Models.AdjacentEdge;
 import com.example.inhamap.Models.EdgeList;
@@ -59,14 +61,22 @@ public class FindPath {
             }
         }
 
+        for(int i = 0; i < this.size; i++){
+            this.dist[i] = DefaultValue.INFINITE_DISTANCE_DOUBLE_VALUE;
+            this.check[i] = 0;
+            this.track[i] = -1;
+        }
+
         for(int i = 0; i < this.edges.size(); i++){
             AdjacentEdge tmp = this.edges.getEdge(i);
+            //Log.e("FIND_ROUTE", Double.toString(tmp.getDistance()));
             NodeItem n1 = tmp.getNodes()[0];
             NodeItem n2 = tmp.getNodes()[1];
             int n1Idx = nodeID2Index(n1.getNodeID());
             int n2Idx = nodeID2Index(n2.getNodeID());
             adj[n1Idx][n2Idx] = tmp.getDistance();
             adj[n2Idx][n1Idx] = tmp.getDistance();
+            //Log.e("FIND_ROUTE", Long.toString(n1.getNodeID()) + " -> " + Long.toString(n2.getNodeID()));
         }
 
         dijkstra();
@@ -83,7 +93,6 @@ public class FindPath {
 
     private void dijkstra(){
         this.dist[nodeID2Index(startNodeID)] = 0;
-
         for(int k = 0; k < this.size; k++){
             double m = DefaultValue.INFINITE_DISTANCE_DOUBLE_VALUE + 1.0f;
             int x = -1;
@@ -93,9 +102,10 @@ public class FindPath {
                     x = i;
                 }
             }
-
+            //Log.e("CHECK", Integer.toString(x));
             this.check[x] = 1;
             for(int i = 0; i < this.size; i++){
+                //Log.e("DIST", "dist[i] : " + Double.toString(this.dist[i]) + " , dist[x] : " + Double.toString(this.dist[x]) + " , adj[x][i] : " + Double.toString(this.adj[x][i]) + " , ressult : " + Double.toString(this.dist[x] + this.adj[x][i]));
                 if(this.dist[i] > this.dist[x] + this.adj[x][i]){
                     this.dist[i] = this.dist[x] + this.adj[x][i];
                     this.track[i] = x;
@@ -106,7 +116,9 @@ public class FindPath {
     }
 
     private void findRoute(int x){
-        if(this.memo[x].nodeID == destinationNodeID){
+        // build path by reverse recursive search to destination node until start node.
+        //Log.e("FIND_ROUTE", Long.toString(this.memo[x].nodeID));
+        if(this.memo[x].nodeID == startNodeID){
             return;
         }
         if(this.track[x] == -1){

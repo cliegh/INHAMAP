@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <FrameLayout
+            <RelativeLayout
                 android:id="@+id/map_fragment_frame_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -29,7 +29,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
-            </FrameLayout>
+                <com.example.inhamap.Components.LocationDrawingSurfaceView
+                    android:id="@+id/map_fragment_location_surface_view"
+                    android:background="@drawable/inhamap"
+                    android:layout_width="1458dp"
+                    android:layout_height="1074dp" />
+
+            </RelativeLayout>
 
         </ScrollView>
 

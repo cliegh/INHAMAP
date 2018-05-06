@@ -1,5 +1,7 @@
 package com.example.inhamap.Models;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 /**
@@ -25,6 +27,7 @@ public class EdgeList {
         }
         if(ret){
             // 같은게 없음
+            Log.e("ADD", Long.toString(data1.getNodeID()) + " - " + Long.toString(data2.getNodeID()));
             AdjacentEdge e = new AdjacentEdge(data1, data2);
             this.list.add(e);
         }

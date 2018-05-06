@@ -16,8 +16,8 @@ public class NodeItem {
 
     public NodeItem(int status, int left, int top, String name, double lat, double lng){
         this.nodeStatus = status;
-        this.marginTop = top - 10;
-        this.marginLeft = left- 5;
+        this.marginTop = top;
+        this.marginLeft = left;
         this.nodeName = name;
         this.nodeLongitude = lng;
         this.nodeLatitude = lat;
@@ -26,8 +26,8 @@ public class NodeItem {
 
     public NodeItem(int status, int left, int top, String name, double lat, double lng, long id){
         this.nodeStatus = status;
-        this.marginTop = top - 10;
-        this.marginLeft = left- 5;
+        this.marginTop = top;
+        this.marginLeft = left;
         this.nodeName = name;
         this.nodeLongitude = lng;
         this.nodeLatitude = lat;

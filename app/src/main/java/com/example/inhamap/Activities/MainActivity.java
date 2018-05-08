@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
     Toolbar myToolbar;
     ImageButton voiceBtn;
 
-    int source; int dest;
+    private long source;
+    private long dest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,4 +139,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode==111){
+            if(resultCode==RESULT_OK){
+                long[] temp = data.getLongArrayExtra("resultId");
+                source = temp[0];
+                dest = temp[1];
+            }
+        }
+    }
 }
